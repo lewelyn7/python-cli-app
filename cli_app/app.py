@@ -39,7 +39,7 @@ class App:
     def parse_command_arguments(self, parser):
         subparsers = parser.add_subparsers(dest='command')
         for name, config in self.commands.items():
-            subparser = subparsers.add_parser(name, description=config['description'])
+            subparser = subparsers.add_parser(name, help=config['description'], description=config['description'])
             config['cls'].register_arguments(subparser)
 
     def run_command(self, name):
